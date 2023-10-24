@@ -9,7 +9,7 @@ public class ThreeSum {
 
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
-                continue; // Skip duplicates
+                continue; // Skip duplicates to avoid duplicate results
             }
             int target = -nums[i];
             int left = i + 1;
@@ -22,11 +22,12 @@ public class ThreeSum {
                     left++;
                     right--;
 
+                    // Skip duplicates in the left and right pointers
                     while (left < right && nums[left] == nums[left - 1]) {
-                        left++; // Skip duplicates
+                        left++;
                     }
                     while (left < right && nums[right] == nums[right + 1]) {
-                        right--; // Skip duplicates
+                        right--;
                     }
                 } else if (sum < target) {
                     left++;
